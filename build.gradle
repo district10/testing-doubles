@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.2'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext.junitPlatformVersion = '1.0.2'
+ext.junitJupiterVersion  = '5.0.2'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+jar {
+    baseName = 'junit5-mockito-extension'
+    version = '1.0.0-SNAPSHOT'
+}
+
+compileTestJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    options.compilerArgs += '-parameters'
+}
+
+dependencies {
+    // Needed as compile since we're building a JUnit Jupiter extension here
+    compile('org.mockito:mockito-core:2.+')
+    compile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+
+    // Needed for @RunWith(JUnitPlatform.class) in the IDE
+    testCompile("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
+
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+
+    // Only needed to run tests in an IDE that bundles an older version
+    testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
+
+    // To avoid compiler warnings about @API annotations in JUnit code
+    compileOnly('org.apiguardian:apiguardian-api:1.0.0')
+    testCompileOnly('org.apiguardian:apiguardian-api:1.0.0')
+}
+
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '4.3.1'
+}
