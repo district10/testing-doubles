@@ -8,13 +8,9 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.example.mockito;
+package com.tangzhixiong.trymockitojunit5;
 
-/**
- * @since 5.0
- */
-public interface NumberGenerator {
+interface MyType {
 
-    int next();
-
+    String getName();
 }

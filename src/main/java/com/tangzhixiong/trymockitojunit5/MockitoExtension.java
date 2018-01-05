@@ -1,4 +1,4 @@
-package com.example.mockito;
+package com.tangzhixiong.trymockitojunit5;
 
 import static org.mockito.Mockito.mock;
 

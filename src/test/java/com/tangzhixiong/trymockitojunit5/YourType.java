@@ -8,9 +8,9 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.example.mockito;
+package com.tangzhixiong.trymockitojunit5;
 
-interface MyType {
+interface YourType {
 
     String getName();
 }

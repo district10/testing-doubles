@@ -1,4 +1,4 @@
-package com.example.mockito;
+package com.tangzhixiong.trymockitojunit5;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
