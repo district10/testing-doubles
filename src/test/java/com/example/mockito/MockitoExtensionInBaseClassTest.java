@@ -1,13 +1,3 @@
-/*
- * Copyright 2015-2016 the original author or authors.
- *
- * All rights reserved. This program and the accompanying materials are
- * made available under the terms of the Eclipse Public License v1.0 which
- * accompanies this distribution and is available at
- *
- * http://www.eclipse.org/legal/epl-v10.html
- */
-
 package com.example.mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,9 +7,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 
 /**
@@ -27,6 +20,7 @@ import org.mockito.Mock;
  * @see MockitoExtension
  */
 @ExtendWith(MockitoExtension.class)
+@RunWith(JUnitPlatform.class)
 class MockitoExtensionInBaseClassTest {
 
     @Mock
@@ -45,11 +39,12 @@ class MockitoExtensionInBaseClassTest {
     }
 
     @Test
-    void secondTestWithInjectedMock(@Mock MyType myType) {
-        assertEquals("secondTestWithInjectedMock(MyType)", myType.getName());
+    void secondTestWithInjectedMock_ThisIsTheFunctionName(@Mock MyType myType) {
+        assertEquals("secondTestWithInjectedMock_ThisIsTheFunctionName(MyType)", myType.getName());
         assertEquals(42, numberGenerator.next());
     }
 
+    @Disabled
     @Test
     void multipleImplicitlyNamedInjectedMocksOfSameTypeAreNotTheSameInstance(@Mock MyType myType1,
             @Mock MyType myType2) {
