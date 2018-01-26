@@ -6,10 +6,13 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -68,7 +71,6 @@ class ManagerTest {
 //      assertThrows(Exception.class, () -> manager.deliverValue());
 // }
 
-
     @Test
     void shouldDoRealWorkIfYouReallyWantAMockToDoSo() throws Exception {
         doCallRealMethod().when(employee).deliverValue();
@@ -86,4 +88,11 @@ class ManagerTest {
 
     }
 
+    @Test
+    void shouldSetupTwoReturnValues() {
+        List<String> strings = mock(List.class);
+        when(strings.size()).thenReturn(3).thenReturn(5);
+        assertThat(strings.size(), equalTo(3));
+        assertThat(strings.size(), equalTo(5));
+    }
 }
