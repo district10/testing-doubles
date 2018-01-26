@@ -1,4 +1,4 @@
-package com.tangzhixiong.testingdoubles;
+package com.tangzhixiong.learningtests;
 
 import org.junit.jupiter.api.*;
 
