@@ -1,4 +1,4 @@
-package com.tangzhixiong.trymockitojunit5;
+package com.tangzhixiong.testingdoubles;
 
 import lombok.Getter;
 import lombok.Setter;

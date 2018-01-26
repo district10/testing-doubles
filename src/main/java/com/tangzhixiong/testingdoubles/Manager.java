@@ -1,4 +1,4 @@
-package com.tangzhixiong.trymockitojunit5;
+package com.tangzhixiong.testingdoubles;
 
 public class Manager {
     private Employee employee;

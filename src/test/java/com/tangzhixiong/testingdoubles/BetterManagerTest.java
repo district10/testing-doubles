@@ -1,4 +1,4 @@
-package com.tangzhixiong.trymockitojunit5;
+package com.tangzhixiong.testingdoubles;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

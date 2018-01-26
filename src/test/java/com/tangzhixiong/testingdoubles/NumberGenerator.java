@@ -8,9 +8,13 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.tangzhixiong.trymockitojunit5;
+package com.tangzhixiong.testingdoubles;
 
-interface YourType {
+/**
+ * @since 5.0
+ */
+public interface NumberGenerator {
 
-    String getName();
+    int next();
+
 }

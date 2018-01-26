@@ -24,6 +24,8 @@
 
 ---
 
+Original code: https://github.com/junit-team/junit5-samples/tree/master/junit5-mockito-extension
+
 A simple JUnit Jupiter extension to integrate Mockito into JUnit Jupiter tests somewhat simpler.
 
 The `MockitoExtension` showcases the `TestInstancePostProcessor` and `ParameterResolver`
